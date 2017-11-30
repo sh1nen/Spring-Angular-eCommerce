@@ -22,17 +22,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/user/**"
     };
 
+    @Autowired
     private Environment env;
+    @Autowired
     private UserSecurityService userSecurityService;
 
-    @Autowired
-    private SecurityConfig(Environment env, UserSecurityService userSecurityService) {
-        this.env = env;
-        this.userSecurityService = userSecurityService;
-    }
-
     private BCryptPasswordEncoder bCryptPasswordEncoder() {
-        return SecurityUtility.passwordEncoder();
+        return SecurityUtility.bCryptPasswordEncoder();
     }
 
     @Override
