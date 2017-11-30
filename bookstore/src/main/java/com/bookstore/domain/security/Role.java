@@ -13,12 +13,14 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @Entity
-public class Role implements Serializable{
+public class Role implements Serializable {
 
     @Id
-    private Long id;
-    private  String name;
+    private Long roleId;
 
-    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private String name;
+
+    @OneToMany(mappedBy = "role", fetch = FetchType.EAGER)
     private Set<UserRole> userRoles = new HashSet<>();
+
 }

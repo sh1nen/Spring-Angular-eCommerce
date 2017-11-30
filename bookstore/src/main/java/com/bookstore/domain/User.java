@@ -21,7 +21,7 @@ public class User implements UserDetails, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="Id", nullable = false, updatable = false)
+    @Column(name = "Id", nullable = false, updatable = false)
     private Long id;
 
     private String username;
@@ -31,10 +31,9 @@ public class User implements UserDetails, Serializable {
 
     private String email;
     private String phone;
-
     private boolean enabled = true;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     @JsonIgnore
     private Set<UserRole> userRoles = new HashSet<>();
 
@@ -65,7 +64,7 @@ public class User implements UserDetails, Serializable {
         return enabled;
     }
 
-    @Override
+
     public String getName() {
         return null;
     }

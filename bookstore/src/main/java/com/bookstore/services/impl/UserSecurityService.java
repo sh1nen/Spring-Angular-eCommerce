@@ -1,5 +1,6 @@
-package com.bookstore.services;
+package com.bookstore.services.impl;
 
+import com.bookstore.domain.User;
 import com.bookstore.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,8 +24,12 @@ public class UserSecurityService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findByUsername(username)
-                             .orElseThrow(() -> new UsernameNotFoundException("Username " + username + " not found"));
+        User user = userRepository.findByUsername(username);
+        if(null == user) {
+            LOG.warn("Username {} not found", username);
+            throw new UsernameNotFoundException("Username "+username+" not found");
+        }
+        return user;
     }
 }
 
