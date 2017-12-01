@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class RequestFilter {
+
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;

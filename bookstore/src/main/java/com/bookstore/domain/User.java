@@ -3,8 +3,10 @@ package com.bookstore.domain;
 import com.bookstore.domain.security.Authority;
 import com.bookstore.domain.security.UserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.Singular;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -35,7 +37,7 @@ public class User implements UserDetails, Serializable {
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     @JsonIgnore
-    private Set<UserRole> userRoles = new HashSet<>();
+    @Singular private Set<UserRole> userRoles = new HashSet<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -63,7 +65,6 @@ public class User implements UserDetails, Serializable {
     public boolean isEnabled() {
         return enabled;
     }
-
 
     public String getName() {
         return null;
