@@ -34,13 +34,13 @@ public class LoginController {
     }
 
     @RequestMapping("/checkSession")
-    public ResponseEntity checkSession() {
-        return new ResponseEntity("Session Active !", HttpStatus.OK);
+    public ResponseEntity<String>checkSession() {
+        return new ResponseEntity<>("Session Active !", HttpStatus.OK);
     }
 
     @RequestMapping(value="/logout", method = RequestMethod.POST)
-    public ResponseEntity logout() {
+    public ResponseEntity<String> logout() {
         SecurityContextHolder.clearContext();
-        return new ResponseEntity("Logout invoked !", HttpStatus.OK);
+        return new ResponseEntity<>("Logout invoked !", HttpStatus.OK);
     }
 }
