@@ -14,6 +14,14 @@ export class LoginComponent implements OnInit {
   constructor(private loginService : LoginService) { }
 
   ngOnInit() {
+    this.loginService.checkSession().subscribe(
+      res => {
+        this.loggedIn = true;
+      },
+      error => {
+        this.loggedIn = false;
+      }
+    );
   }
 
   onSubmit() {

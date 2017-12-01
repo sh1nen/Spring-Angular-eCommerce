@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { NoopAnimationsModule } from '@angular/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import 'hammerjs';
 import {
   MatButtonModule,
@@ -35,6 +35,8 @@ const MAT_MODULES  = [
     BrowserModule,
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     routing,
     MAT_MODULES
   ],

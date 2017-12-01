@@ -3,7 +3,5 @@
   <span class="example-spacer"></span>
   <span [hidden]="!loggedIn "><a mat-button>View Book List</a></span>
   <span [hidden]="!loggedIn "><a mat-button>Add a Book</a></span>
-  <span [hidden]="!loggedIn "><a mat-button>Logout</a></span>
-</mat-toolbar>
-
-<button mat-raised-button class="mat-warn" (click)="toggleDisplay()">Toggle</button>
+  <span [hidden]="!loggedIn " (click)="logout()"><a mat-button>Logout</a></span>
+</mat-toolbar> 
