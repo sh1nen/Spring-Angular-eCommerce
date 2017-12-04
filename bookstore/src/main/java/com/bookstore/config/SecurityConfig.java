@@ -17,11 +17,15 @@ import org.springframework.session.web.http.HttpSessionStrategy;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
     private Environment env;
 
-    @Autowired
     private UserSecurityService userSecurityService;
+
+    @Autowired
+    public SecurityConfig(Environment env, UserSecurityService userSecurityService) {
+        this.env = env;
+        this.userSecurityService = userSecurityService;
+    }
 
     private BCryptPasswordEncoder passwordEncoder() {
         return SecurityUtility.passwordEncoder();

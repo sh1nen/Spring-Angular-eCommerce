@@ -18,8 +18,11 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
-import { LoginService } from './services/login.service';
 import { AddNewBookComponent } from './components/add-new-book/add-new-book.component';
+
+import { LoginService } from './services/login.service';
+import { AddBookService } from './services/add-book.service';
+import { UploadImageService } from './services/upload-image.service';
 
 const MAT_MODULES  = [
   MatButtonModule,
@@ -48,7 +51,9 @@ const MAT_MODULES  = [
     MAT_MODULES
   ],
   providers: [
-    LoginService
+    LoginService,
+    AddBookService,
+    UploadImageService
   ],
   bootstrap: [AppComponent]
 })
