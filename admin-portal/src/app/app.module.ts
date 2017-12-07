@@ -13,16 +13,21 @@ import {
   MatSelectModule,
   MatSlideToggleModule
 } from "@angular/material";
+
 import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddNewBookComponent } from './components/add-new-book/add-new-book.component';
+import { BookListComponent } from './components/book-list/book-list.component';
+import { ViewBookComponent } from './components/view-book/view-book.component';
 
 import { LoginService } from './services/login.service';
 import { AddBookService } from './services/add-book.service';
 import { UploadImageService } from './services/upload-image.service';
+import { GetBookListService } from './services/get-book-list.service';
+import { GetBookService } from './services/get-book.service';
 
 const MAT_MODULES  = [
   MatButtonModule,
@@ -39,7 +44,9 @@ const MAT_MODULES  = [
     AppComponent,
     NavBarComponent,
     LoginComponent,
-    AddNewBookComponent
+    AddNewBookComponent,
+    BookListComponent,
+    ViewBookComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +60,9 @@ const MAT_MODULES  = [
   providers: [
     LoginService,
     AddBookService,
-    UploadImageService
+    UploadImageService,
+    GetBookListService,
+    GetBookService
   ],
   bootstrap: [AppComponent]
 })

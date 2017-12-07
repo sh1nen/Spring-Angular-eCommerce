@@ -2,7 +2,6 @@ package com.bookstore.controllers;
 
 import com.bookstore.domain.Book;
 import com.bookstore.services.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,13 +14,14 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Iterator;
+import java.util.List;
 
 @RestController
 @RequestMapping("/book")
 public class BookController {
 
     private BookService bookService;
-    @Autowired
+
     public BookController(BookService bookService) {
         this.bookService = bookService;
     }
@@ -49,5 +49,10 @@ public class BookController {
             return new ResponseEntity<String>("Upload failed", HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<String>("Image uploaded successfully", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/bookList", method = RequestMethod.GET)
+    public List<Book> bookList() {
+        return bookService.findAll();
     }
 }
